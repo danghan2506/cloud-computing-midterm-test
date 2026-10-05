@@ -29,7 +29,7 @@ function getReadUserModel() {
     return conn.model('UserRead', userSchema);
   }
 }
-
+// hash password
 async function hashPassword(plainPassword) {
   if (!plainPassword || plainPassword.length < 4) {
     const err = new Error('Password must be at least 4 characters');
