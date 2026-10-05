@@ -1,7 +1,7 @@
 const { Schema } = require('mongoose');
 const { getReadConnection, getWriteConnection } = require('../config/db');
 const { validateBookCode, calculatePriceWithTax, getVatRate } = require('../utils/pricing');
-
+// Book Schema
 const bookSchema = new Schema(
   {
     bookCode: { type: String, required: true, unique: true, trim: true },
