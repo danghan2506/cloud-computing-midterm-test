@@ -1,0 +1,30 @@
+<h1>Quản lý Sách (DB_23IT067)</h1>
+
+<h2>Thêm sách mới (write: writer_23IT067)</h2>
+<form method="POST" action="/">
+  <input name="bookCode" placeholder="Mã sách, VD 067-A001 (bắt buộc prefix 067)" required />
+  <input name="title" placeholder="Tên sách" required />
+  <input name="author" placeholder="Tác giả" required />
+  <input name="price" type="number" min="0" placeholder="Giá gốc" required />
+  <button type="submit">Thêm (tự tính +{{vatRate}}% VAT)</button>
+</form>
+
+<h2>Danh sách (read: reader_23IT067)</h2>
+<table>
+  <thead>
+    <tr><th>Mã</th><th>Tên</th><th>Tác giả</th><th>Giá gốc</th><th>Giá sau thuế ({{vatRate}}%)</th></tr>
+  </thead>
+  <tbody>
+    {{#each books}}
+    <tr>
+      <td>{{this.bookCode}}</td>
+      <td>{{this.title}}</td>
+      <td>{{this.author}}</td>
+      <td>{{this.price}}</td>
+      <td>{{this.priceWithTax}}</td>
+    </tr>
+    {{else}}
+    <tr><td colspan="5">Chưa có sách. Thêm mã bắt đầu bằng 067 để kiểm tra bộ lọc.</td></tr>
+    {{/each}}
+  </tbody>
+</table>
